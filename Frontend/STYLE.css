@@ -1,0 +1,62 @@
+/*Specific NEW font parameters*/
+@font-face{
+    font-family: "Title";
+    src: url("Fonts/Title.otf"); /*Path relative to CSS file*/
+}
+@font-face{
+    font-family: "Header";
+    src: url("Fonts/Headers.ttf");
+}
+@font-face{
+    font-family: "Text";
+    src: url("Fonts/Text.ttf"); 
+}
+
+/*Specific CLASSES of text styles*/
+.anime-title{ /*Includes dot because its custonm*/
+    font-family: "Title";
+    color: #E89EB8;
+    font-size: 64px;
+    border: 1px solid #ffffff;
+}
+.Headers{
+    font-family: "Header";
+    color: #996D73;
+    font-size: 50px;
+}
+.about-me{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px; 
+}
+.center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    text-align: center;
+    letter-spacing: 4px;
+}
+button {
+    background-color: #FFFFC5;
+    padding: 10px 20px; /*top/bottom, left/right*/
+    font-family: "Title";
+    font-size: 16px;
+    border:3px solid#996D73;
+    border-radius: 10px; /*Make rounded corners*/
+    cursor: pointer;
+    color: #996D73;
+}
+p, ol, ul, li, a{
+    font-family: "Text";
+    color: black;
+    font-size: 20px;
+    font-weight: 100;
+}
+img{
+    border: 10px solid #996D73;
+    border-radius: 10px;
+}
