@@ -41,7 +41,7 @@
 .search-area{ /* Originally was an id, but because it overlaps with hidden, the speicifcfity overrid hidden, so we'll make them equally specific*/
     font-family: "Text";
     border: 3px solid #996D73;
-    height: 150px;
+    height: 200px;
     width: 200px;
     position: fixed;
     top: 100px; /*100 px from tp of page*/
@@ -58,6 +58,7 @@
 .hidden {
     display: none;/*Used to hide elements, can be used in JS to hide and show elements*/
 }
+
 h1{
     text-align: center;
     letter-spacing: 4px;
@@ -72,7 +73,7 @@ button {
     cursor: pointer;
     color: #996D73;
 }
-#search-button:hover { /*looks for the ID instead of general button*/
+button:hover { 
     transform: scale(1.05); /*Make it slightly bigger*/
 }
 
@@ -91,4 +92,9 @@ img{
     border: 3px solid #996D73;
     border-radius: 10px;
     padding: 5px;
+}
+
+#full-body {
+    position: fixed;
+    inset: 0; /*Makes it cover everything with no gaps on top, bottom, left, or right*/
 }
