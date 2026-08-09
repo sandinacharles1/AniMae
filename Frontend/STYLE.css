@@ -37,6 +37,27 @@
     flex-direction: column;
     align-items: center;
 }
+
+.search-area{ /* Originally was an id, but because it overlaps with hidden, the speicifcfity overrid hidden, so we'll make them equally specific*/
+    font-family: "Text";
+    border: 3px solid #996D73;
+    height: 150px;
+    width: 200px;
+    position: fixed;
+    top: 100px; /*100 px from tp of page*/
+    left : 50%; /* left edge is 50% from left of page*/
+    transform: translateX(-50%); /*This is necessary sicne left is 50% from left of page, it will be off center, so we need to move it back 50% of its own width*/
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgba(237,166,196,0.5);
+    display: flex; /*ALWAYS NECESSARY FOR FLEX*/
+    flex-direction: row;
+    place-content: center;
+    /*justifyinbg works along the adxis, and aligning words to align other pieces of parallel axes*/
+}
+.hidden {
+    display: none;/*Used to hide elements, can be used in JS to hide and show elements*/
+}
 h1{
     text-align: center;
     letter-spacing: 4px;
@@ -52,7 +73,7 @@ button {
     color: #996D73;
 }
 #search-button:hover { /*looks for the ID instead of general button*/
-    transform: scale(1.05); /*Make it slightly bigger*/S
+    transform: scale(1.05); /*Make it slightly bigger*/
 }
 
 p, ol, ul, li, a{
@@ -64,4 +85,10 @@ p, ol, ul, li, a{
 img{
     border: 10px solid #996D73;
     border-radius: 10px;
+}
+
+#search-bar{
+    border: 3px solid #996D73;
+    border-radius: 10px;
+    padding: 5px;
 }

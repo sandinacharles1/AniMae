@@ -10,6 +10,7 @@
 <!-TO do style, in the opening tag, include style:"" but we'll do separate CSS-->
 <body class="center"> <!--holds content of page--->
     <section>
+
         <section>
             <h1 class="anime-title">AniMae</h1>
             <h2 class="Headers"><i>Your anime-watching destination!!</i></h2>
@@ -17,6 +18,28 @@
             <a href="mailto:sandinacharls2024@fau.edu">Contact Me<br><br></a> <!--for call, use tel, text sms, general website no type: js link , for email use-->
             <button class="button" id="search-button">Click Me to search!</button>
         </section>
+        
+        <!--add search bar! hidden unless button is clicked-->
+        <section class="search-area hidden" id="search-area"> <!---->
+            <div> 
+                <input type="text" id="search-bar" placeholder="Search for anime...">
+                <p>Filters</p>
+
+                <select id="Language">
+                    <option value="Dub">Dubbed</option> <!--give value for dubbing and the text they see-->
+                    <option value="Sub">Subbed</option>
+                    <optgroup label="Other Languages"> <!--grouping of options-->
+                        <option value="Spanish">Spanish</option>
+                    </optgroup>
+                </select>
+                
+                <label>
+                    <input type="checkbox" id="NSFW">
+                    NSFW
+                </label>
+            </div>
+        </section>
+
 
         <section>
             <div>
