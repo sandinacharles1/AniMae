@@ -5,8 +5,9 @@
 <meta charset="UTF-8"> <!--Character encoding for page-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--makes page responsive to different screen sizes-->
 <link rel="stylesheet" href="style.css"> <!--hyperlink to external CSS file, with the relation being that it's a stylesheet-->
+<script src="script.js" defer></script> <!--hyperlink to external JS file, but since its in header instead of at end of body, use defer so it waits for html stuff*/
 </head> 
-<!--TO do style, in the opening tag, include style:"" but we'll do separate CSS-->
+<!-TO do style, in the opening tag, include style:"" but we'll do separate CSS-->
 <body class="center"> <!--holds content of page--->
     <section>
         <section>
@@ -14,7 +15,7 @@
             <h2 class="Headers"><i>Your anime-watching destination!!</i></h2>
             <p>Hey! This is my 1st website :]! <br> The goal is to have people find and save anime!</p> <!--<br> for breaks -->
             <a href="mailto:sandinacharls2024@fau.edu">Contact Me<br><br></a> <!--for call, use tel, text sms, general website no type: js link , for email use-->
-            <button class="button">Click Me to search!</button>
+            <button class="button" id="search-button">Click Me to search!</button>
         </section>
 
         <section>
