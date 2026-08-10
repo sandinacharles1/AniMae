@@ -18,11 +18,10 @@
     font-family: "Title";
     color: #E89EB8;
     font-size: 64px;
-    border: 1px solid #ffffff;
 }
 .Headers{
     font-family: "Header";
-    color: #996D73;
+    color: #E89EB8;
     font-size: 50px;
 }
 .about-me{
@@ -63,18 +62,24 @@ h1{
     text-align: center;
     letter-spacing: 4px;
 }
-button {
+
+
+.fakebutton {
     background-color: #FFFFC5;
     padding: 10px 20px; /*top/bottom, left/right*/
     font-family: "Title";
     font-size: 16px;
-    border:3px solid#996D73;
+    border:3px solid#E89EB8;
     border-radius: 10px; /*Make rounded corners*/
     cursor: pointer;
-    color: #996D73;
+    color: #E89EB8;
+    text-decoration: none; /*remove underline*/
+    display: inline-block; /*was needed to make it trsansform so the link appears as a block and not text or smth??*/
 }
-button:hover { 
+.fakebutton:hover { 
     transform: scale(1.05); /*Make it slightly bigger*/
+    cursor: url('Images/pointer.png'), pointer;
+    
 }
 
 p, ol, ul, li, a{
@@ -84,17 +89,46 @@ p, ol, ul, li, a{
     font-weight: 100;
 }
 img{
-    border: 10px solid #996D73;
+    border: 10px solid #E89EB8;
     border-radius: 10px;
 }
 
+.search-bar {
+    border: 3px solid #996D73;
+    border-radius: 10px;
+    padding: 5px;
+}
 #search-bar{
     border: 3px solid #996D73;
     border-radius: 10px;
     padding: 5px;
 }
 
+#search-bar2{
+    border: 3px solid #996D73;
+    border-radius: 10px;
+    padding: 5px;
+    width: 500px;
+    font-family: "Header";
+    font-size: medium;
+    /*move to left the display becomes the entire screen block then you maximize margin AWAY from left */
+    display:block;
+    margin-left: auto;
+}
+#search-bar2:hover{
+    transform: scale(1.05);
+}
 #full-body {
     position: fixed;
     inset: 0; /*Makes it cover everything with no gaps on top, bottom, left, or right*/
+}
+#background {
+    background-image: url(Images/background.jpg);
+    background-size: cover; /*scale image so whole thing fits*/
+    width: 100vw;
+    height:100vh;
+    box-sizing: border-box; /*make border match specifieid hheight and width*/
+    border: 30px solid #ffffff;
+    outline: 10px solid #E89EB8;
+   
 }

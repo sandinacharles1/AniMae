@@ -1,8 +1,10 @@
+/*
 //IF we select an item with querySelector, you can do by id (#), class (.), or jhtml element (h1, p, etc). If you select by id, it will only select the first one. It will only choose the first though. querySelectorAll() returns all matching
 // array.forEach(array =>{func ;})
 
 // OPENING SEARCH AREA
 const button = document.getElementById('search-button'); //From html document where we assigened an id, get the id and assign to a variable
+const submitSearch = document.getElementById('submit-search');
 const searchArea = document.querySelector("#search-area");
 button.addEventListener("click", () => { //add an event listener to the button, when clicked, it will run the function
     searchArea.classList.remove("hidden");
@@ -32,5 +34,18 @@ async function getUserInput(){
 submit.addEventListener("click", () => {
     getUserInput();
 })
-
-
+*/
+/*Connect Search Bar Pressing Enter (keydown whenn key is enter) to Kitsu API. https://hummingbird-me.github.io/api-docs/#section/JSON:API/Request-Headers*/
+const searchBar = document.getElementById('search-bar2');
+async function getAnimeStats(){
+    const textInput = searchBar.value;
+    const query =  `?filter[text]=${encodeURIComponent(textInput)}` /*include variables with $var and backticks*/
+    const response = await fetch(`https://kitsu.io/api/edge/anime${query}`);
+    const data = await response.json()
+    console.log(data);
+}
+searchBar.addEventListener("keydown", (event /*parameter to find info from*/) => {
+    if (event.key === "Enter"){
+        getAnimeStats();
+    }
+});
