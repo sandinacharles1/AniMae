@@ -43,9 +43,67 @@ async function getAnimeStats(){
     const response = await fetch(`https://kitsu.io/api/edge/anime${query}`);
     const data = await response.json()
     console.log(data);
+    return data;
 }
-searchBar.addEventListener("keydown", (event /*parameter to find info from*/) => {
+
+/*Get anime info for card*/
+function getAnimeInfo(data) {
+    data.data.forEach(i  => { //Where i represents data.data[i]
+        const id = i.id;
+        const ageRating = i.attributes.ageRating;
+        const coverImage = i.attributes.coverImage.original;
+        const canonicalTitle = i.attributes.canonicalTitle;
+        const episodeCount = i.attributes.episodeCount;
+        const nsfw = i.attributes.nsfw;
+        const synopsis = i.attributes.synopsis;
+
+        console.log(canonicalTitle); //debugigng
+
+        /*Create card*/
+        const card =  document.createElement("div");
+        
+
+        const frontOfCard =  document.createElement("div");
+        frontOfCard.classList.add("anime-card")
+        
+        /*Create Children and Append them to the card*/
+        const image = document.createElement("img");
+        image.src = coverImage
+        frontOfCard.appendChild(image);
+
+        const title = document.createElement("h2");
+        title.textContent = canonicalTitle;
+        frontOfCard.appendChild(title);
+
+        const episodes = document.createElement("p");
+        episodes.textContent = `Episodes: ${episodeCount}`;
+        frontOfCard.appendChild(episodes);
+
+        const age = document.createElement("p"); /*You can also use span instead of p for short phrases*/
+        age.textContent = ageRating;
+        frontOfCard.appendChild(age);
+
+        const Nsfw = document.createElement("p");
+        Nsfw.textContent = nsfw ? "18+ (NSFW)" : "Safe for Work"; //condition ? expression_if_true : expression_if_false;
+        frontOfCard.appendChild(Nsfw);
+
+        /*const backOfCard =  document.createElement("div");
+        const summary = document.createElement("p");
+        summary.textContent = `Summary: ${synopsis}`;
+        backOfCard.classList.add("summary-card")
+        backOfCard.appendChild(summary);
+        card.appendChild(backOfCard);*/
+        card.appendChild(frontOfCard)
+
+        //Now we put the card divider/container into the dedicated div  we have for it
+        const results = document.getElementById("results");
+        results.appendChild(card);
+    });
+};
+
+searchBar.addEventListener("keydown", async/*It uses get anime stats*/ (event) /*parameter to find info from*/ => {
     if (event.key === "Enter"){
-        getAnimeStats();
+        let data = await getAnimeStats();
+        getAnimeInfo(data);
     }
 });

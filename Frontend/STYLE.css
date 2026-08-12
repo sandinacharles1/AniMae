@@ -40,7 +40,7 @@
 .search-area{ /* Originally was an id, but because it overlaps with hidden, the speicifcfity overrid hidden, so we'll make them equally specific*/
     font-family: "Text";
     border: 3px solid #996D73;
-    height: 200px;
+    min-height: 200px;
     width: 200px;
     position: fixed;
     top: 100px; /*100 px from tp of page*/
@@ -81,7 +81,52 @@ h1{
     cursor: url('Images/pointer.png'), pointer;
     
 }
+#results{
+    /*display: flex;
+    flex-direction: row;
+    gap: 5px;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    gap: 20px; /*!!!LEARN TO EXPLAIN GRID VS FLEXBOX*/
+}
+.anime-card {
+    min-height: 400px;    
+    width: 300px;
+    
+    
+    background-color: #FFFFC5;
+    
+    display: flex;
+    flex-direction: column;
+    
+    padding: 2px 2px; /*top/bottom, left/right. space in element*/
+    
+    font-family: "Title";
+    font-size: 14px;
+    
+    border:5px solid#E89EB8;
+    border-radius: 12px; /*Make rounded corners*/
+    
+    color: #E89EB8;
+    text-decoration: none; /*remove underline*/
 
+    margin: 5px;
+}
+.anime-card:hover { /*get image frorm in the card*/
+    transform: scale(1.05);
+
+}
+.anime-card img {
+    width: 75%;
+    height: 50%;
+    margin-top: 5px;
+    object-fit: cover;
+
+    align-self: center;
+
+    border:5px solid #996D73;
+    border-radius: 12px;
+}
 p, ol, ul, li, a{
     font-family: "Text";
     color: black;
@@ -131,4 +176,20 @@ img{
     border: 30px solid #ffffff;
     outline: 10px solid #E89EB8;
    
+}
+
+.anime-card  p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical; /*clamp it to 3 lines vertically*/
+    -webkit-line-clamp: 3; /*only number of lines to appear*/
+    overflow-wrap: break-word; /*break a long word*/
+    /*text-overflow: ellipsis; /*turn text into ellipsis... mainly for singlw line*/
+    font-size: 20px;
+    overflow: hidden; /*hide anything past the box*/
+    line-height: 3;
+    margin: 0.25px;
+}
+.anime-card  h1{
+    margin: 0.25px;
+    font-size: 20px;
 }
