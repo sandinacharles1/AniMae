@@ -61,10 +61,11 @@ function getAnimeInfo(data) {
 
         /*Create card*/
         const card =  document.createElement("div");
-        
+        card.classList.add("anime-card")
 
         const frontOfCard =  document.createElement("div");
-        frontOfCard.classList.add("anime-card")
+        frontOfCard.id = "frontOfCard"
+        
         
         /*Create Children and Append them to the card*/
         const image = document.createElement("img");
@@ -87,23 +88,53 @@ function getAnimeInfo(data) {
         Nsfw.textContent = nsfw ? "18+ (NSFW)" : "Safe for Work"; //condition ? expression_if_true : expression_if_false;
         frontOfCard.appendChild(Nsfw);
 
-        /*const backOfCard =  document.createElement("div");
+        /*create summary back of card*/
+        const backOfCard =  document.createElement("div");
+        backOfCard.id = "backOfCard"
         const summary = document.createElement("p");
         summary.textContent = `Summary: ${synopsis}`;
         backOfCard.classList.add("summary-card")
         backOfCard.appendChild(summary);
-        card.appendChild(backOfCard);*/
+        
+        //Add both into card div
+        card.appendChild(backOfCard);
         card.appendChild(frontOfCard)
 
         //Now we put the card divider/container into the dedicated div  we have for it
         const results = document.getElementById("results");
         results.appendChild(card);
+
+        card.addEventListener("click", () => {
+            window.location.href = `anime.html?id=${id}`;//!START  FOR NEXT TIME
+        });
     });
 };
 
+
+
+
 searchBar.addEventListener("keydown", async/*It uses get anime stats*/ (event) /*parameter to find info from*/ => {
     if (event.key === "Enter"){
-        let data = await getAnimeStats();
-        getAnimeInfo(data);
+        results.innerHTML = "";
+        /*Loading Screen. Erase  everything before when loading and whenn we get our data we erase the loading screen*/
+        const loading = document.createElement("div");
+        loading.classList.add("searchResults");
+        loading.textContent = "Searching..."; 
+        results.appendChild(loading);
+        
+       
+        let data = await getAnimeStats(); //returns an array of data inside a data header. get the length of the array to see if it worked
+        results.innerHTML = ""; // Erase everythign from last search in html 
+       
+       
+        if (data.data.length === 0){
+            const searchResults = document.createElement("div");
+            searchResults.textContent = "No results found :("; // put text content inside div insead of making a new variable for text and appending later
+            searchResults.classList.add("searchResults");
+            results.appendChild(searchResults);
+        } else {
+            getAnimeInfo(data);
+        }
+
     }
 });

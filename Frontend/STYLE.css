@@ -89,6 +89,8 @@ h1{
     grid-template-columns: repeat(auto-fit, 400px);
     gap: 20px; /*!!!LEARN TO EXPLAIN GRID VS FLEXBOX*/
 }
+
+
 .anime-card {
     min-height: 400px;    
     width: 300px;
@@ -111,22 +113,13 @@ h1{
     text-decoration: none; /*remove underline*/
 
     margin: 5px;
+    position: relative; /*Needed when having the child boxes stack, else theyll move to the next parent container with a position layout defied*/
 }
 .anime-card:hover { /*get image frorm in the card*/
     transform: scale(1.05);
 
 }
-.anime-card img {
-    width: 75%;
-    height: 50%;
-    margin-top: 5px;
-    object-fit: cover;
 
-    align-self: center;
-
-    border:5px solid #996D73;
-    border-radius: 12px;
-}
 p, ol, ul, li, a{
     font-family: "Text";
     color: black;
@@ -171,13 +164,16 @@ img{
     background-image: url(Images/background.jpg);
     background-size: cover; /*scale image so whole thing fits*/
     width: 100vw;
-    height:100vh;
+    min-height:100vh;
     box-sizing: border-box; /*make border match specifieid hheight and width*/
     border: 30px solid #ffffff;
     outline: 10px solid #E89EB8;
    
 }
 
+.summary-card{
+    font-size = 16px;
+}
 .anime-card  p{
     display: -webkit-box;
     -webkit-box-orient: vertical; /*clamp it to 3 lines vertically*/
@@ -185,11 +181,57 @@ img{
     overflow-wrap: break-word; /*break a long word*/
     /*text-overflow: ellipsis; /*turn text into ellipsis... mainly for singlw line*/
     font-size: 20px;
-    overflow: hidden; /*hide anything past the box*/
+    /*overflow: hidden; /*hide anything past the box*/
     line-height: 3;
     margin: 0.25px;
 }
 .anime-card  h1{
     margin: 0.25px;
     font-size: 20px;
+}
+#frontOfCard, #backOfCard {
+    position: absolute; /*works with speicifed containing block*/
+    /*where it starts*/
+    /*top: 0;
+    left: 0;
+    /*where it ends*/
+   /* width: 100%;
+    height: 100%;*/
+}
+.anime-card img {
+    width: 75%;
+    height: 50%;
+    margin-top: 5px;
+    object-fit: cover;
+
+    align-self: center;
+
+    border:5px solid #996D73;
+    border-radius: 12px;
+}
+#frontOfCard{
+    /*display:block/*visible block*/
+}
+.anime-card:hover #frontOfCard{
+    display: none/*visible block*/
+}
+#backOfCard {
+    display:none
+}
+.anime-card:hover #backOfCard {
+    display:block /*visible block*/;
+    font-size: 4px;
+    line-height: 1px;
+    height: 100%;
+    /*Scroollbar*/
+    flex: auto; /*flex: [flex-grow]=1 (can grow) [flex-shrink]=1 (can shrink) [flex-basis]=auto (look at the containers szie; */
+    overflow-y: auto; /*Scrolluing mechanism*/
+}
+.searchResults {
+    font-family: "Title";
+    color: #E89EB8;
+    font-size: 64px;
+    display: flex;
+    justify-items: center; /*horizantal*/
+    align-items: center; /*vertical*/
 }
