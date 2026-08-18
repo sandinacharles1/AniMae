@@ -120,12 +120,13 @@ h1{
 
 }
 
-p, ol, ul, li, a{
+p, ol, ul, li, a, #synopsis3 {
     font-family: "Text";
     color: black;
     font-size: 20px;
     font-weight: 100;
 }
+
 img{
     border: 10px solid #E89EB8;
     border-radius: 10px;
@@ -211,6 +212,7 @@ img{
 }
 #frontOfCard{
     /*display:block/*visible block*/
+
 }
 .anime-card:hover #frontOfCard{
     display: none/*visible block*/

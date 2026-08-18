@@ -36,7 +36,7 @@ submit.addEventListener("click", () => {
 })
 */
 /*Connect Search Bar Pressing Enter (keydown whenn key is enter) to Kitsu API. https://hummingbird-me.github.io/api-docs/#section/JSON:API/Request-Headers*/
-const searchBar = document.getElementById('search-bar2');
+searchBar = document.getElementById("search-bar2");
 async function getAnimeStats(){
     const textInput = searchBar.value;
     const query =  `?filter[text]=${encodeURIComponent(textInput)}` /*include variables with $var and backticks*/
@@ -112,8 +112,8 @@ function getAnimeInfo(data) {
 
 
 
-
-searchBar.addEventListener("keydown", async/*It uses get anime stats*/ (event) /*parameter to find info from*/ => {
+/*It uses get anime stats parameter to find info from*/ 
+searchBar.addEventListener("keydown", async (event) => {
     if (event.key === "Enter"){
         results.innerHTML = "";
         /*Loading Screen. Erase  everything before when loading and whenn we get our data we erase the loading screen*/
@@ -138,3 +138,5 @@ searchBar.addEventListener("keydown", async/*It uses get anime stats*/ (event) /
 
     }
 });
+
+//
